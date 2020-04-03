@@ -8,6 +8,8 @@ USER root
 
 COPY build/setup-os.sh build/setup-os.sh
 RUN build/setup-os.sh
+RUN apt-get clean && apt-get update && apt-get install -y locales
+RUN locale-gen en_US.UTF-8
 
 USER user
 

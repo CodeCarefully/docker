@@ -3,6 +3,8 @@
 . erlang/activate
 cd kazoo
 
+python --version
+
 if [ -z $BRANCH ]
 then
 	git fetch

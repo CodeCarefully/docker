@@ -2,7 +2,6 @@
 cd freeswitch
 make install
 
-groupadd freeswitch
 
 adduser --disabled-password  --quiet --system --home /usr/local/freeswitch --ingroup freeswitch freeswitch
 

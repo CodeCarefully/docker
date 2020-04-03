@@ -15,6 +15,18 @@ ARG BRANCH
 ARG KZUID
 ARG GID
 
+USER root
+RUN apt-get -y install python python3
+# Set the locale
+RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && sed -i -e 's/# pt_BR.UTF-8 UTF-8/pt_BR.UTF-8 UTF-8/' /etc/locale.gen && locale-gen 
+
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US.en
+ENV LC_ALL en_US.UTF-8
+
+RUN locale
+
+USER user
 COPY etc/commit /home/user/commit
 COPY build/setup.sh build/setup.sh
 RUN build/setup.sh
